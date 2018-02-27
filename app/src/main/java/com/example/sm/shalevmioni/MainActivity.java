@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     Switch st;
     Button btn;
     LinearLayout LL;
+    boolean bool1;
+    boolean bool2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,44 +30,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shalev1(View view) {
-
-        boolean bool1 = ((ToggleButton) view).isChecked();
-
-        if (bool1) {
-            LL.setBackgroundColor(Color.BLUE);
-        } else {
-            LL.setBackgroundColor(Color.MAGENTA);
-        }
+        bool1 = tb.isChecked();
     }
 
     public void shalev2(View view) {
 
-        boolean bool2 = ((Switch) view).isChecked();
-
-        if (bool2) {
-            LL.setBackgroundColor(Color.YELLOW);
-        } else {
-
-            LL.setBackgroundColor(Color.RED);
-        }
+        bool2 = st.isChecked();
     }
 
     public void shalev3(View view) {
 
-        if (tb.isChecked()) {
-
-            Toast.makeText(this, "ToggleButton is ON", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "ToggleButton is OFF", Toast.LENGTH_LONG).show();
+        if (bool1 && bool2) {
+            LL.setBackgroundColor(Color.MAGENTA);
+        } else if (!bool1 && bool2) {
+            LL.setBackgroundColor(Color.CYAN);
         }
-        if (st.isChecked()) {
-
-            Toast.makeText(this, "Switch is ON", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "Switch is OFF", Toast.LENGTH_LONG).show();
+        else if (bool1 && !bool2) {
+                LL.setBackgroundColor(Color.GRAY);
+            } else if (!bool1 && !bool2) {
+                LL.setBackgroundColor(Color.LTGRAY);
+            }
+            }
         }
-    }
-}
+
 
 
 
